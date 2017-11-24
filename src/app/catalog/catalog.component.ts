@@ -11,7 +11,6 @@ export class CatalogComponent implements OnInit {
   books = BOOK_DATA;
   selectedBook = null;
   keywords = null;
-  searchwords = '';
 
   constructor() { }
 
@@ -24,16 +23,17 @@ export class CatalogComponent implements OnInit {
 
   searchBook(keywords) {
     this.keywords = keywords;
-    this.searchwords = this.keywords.split(' ');
-    this.books = BOOK_DATA.filter(this.hasKeyword);
-  }
-
-  hasKeyword(book) {
-    for (let k of this.searchwords) {
-      if (book.description.includes(k) || book.title.includes(k) || book.authors.includes(k) || book.publisher.includes(k)) {
-        return true;
-      }
-    }
-    return false;
+    const searchwords = this.keywords.split(' ');
+    this.books = BOOK_DATA.filter(function(book){
+        for (let w of searchwords) {
+            if (book.description.toLowerCase().includes(w.toLowerCase()) ||
+                book.title.toLowerCase().includes(w.toLowerCase()) ||
+                book.authors.toLowerCase().includes(w.toLowerCase()) ||
+                book.publisher.toLowerCase().includes(w.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    });
   }
 }
