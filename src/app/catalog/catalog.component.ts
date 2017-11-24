@@ -11,7 +11,7 @@ export class CatalogComponent implements OnInit {
   books = BOOK_DATA;
   selectedBook = null;
   keywords = null;
-  searchwords = "";
+  searchwords = '';
 
   constructor() { }
 
