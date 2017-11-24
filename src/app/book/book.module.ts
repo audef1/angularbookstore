@@ -14,28 +14,28 @@ export class BookModule {
 
 export class Book {
     isbn: string;
-    author: string;
+    authors: string;
     title: string;
     price: number;
     binding: BookBinding;
     publisher: string;
-    year: number;
-    pages: number;
+    publicationYear: number;
+    numberOfPages: number;
     description: string;
-    image: string;
+    imageUrl: string;
 
-    constructor(isbn: string, author: string, title: string, price: number, publisher: string, year: number
-    , binding: BookBinding, pages: number, description: string, image: string) {
+    constructor(isbn: string, authors: string, title: string, price: number, publisher: string, publicationYear: number
+    , binding: BookBinding, numberOfPages: number, description: string, imageUrl: string) {
         this.isbn = isbn;
-        this.author = author;
+        this.authors = authors;
         this.title = title;
         this.price = price;
         this.publisher = publisher;
-        this.year = year;
+        this.publicationYear = publicationYear;
         this.binding = binding;
-        this.pages = pages;
+        this.numberOfPages = numberOfPages;
         this.description = description;
-        this.image = image;
+        this.imageUrl = imageUrl;
     }
 }
 
