@@ -1,17 +1,88 @@
 <div *ngIf="book">
   <div class="row">
-    <div class="col-lg-6 col-sm-12">
-      <strong>Author:</strong> {{ book.authors }}<br/>
-      <strong>ISBN:</strong> {{ book.isbn }}<br/>
-      <strong>Titel:</strong> {{ book.title }}<br/>
-      <strong>Preis:</strong> {{ book.price }}<br/>
-      <strong>Bindung:</strong> {{ bookBinding[book.binding] }}<br/>
-      <strong>Verlag:</strong> {{ book.publisher }}<br/>
-      <strong>Publikationsjahr:</strong> {{ book.publicationYear }}<br/>
-      <strong>Seiten:</strong> {{ book.numberOfPages }}<br/>
-      <strong>Beschreibung:</strong><br/>{{ book.description }}
+    <div class="col-md-12">
+      <h3>Book Details</h3>
+      <button (click)="back.emit()" class="btn btn-default pull-right">Back</button>
     </div>
-    <div class="col-lg-6 col-sm-12">
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <table>
+        <tr>
+          <td class="col-md-2">
+            <strong>Titel:</strong>
+          </td>
+          <td>
+            {{ book.title }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Author:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.authors }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>ISBN:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.isbn }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Preis:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.price }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Bindung:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ bookBinding[book.binding] }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Verlag:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.publisher }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Publikationsjahr:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.publicationYear }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Seiten:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.numberOfPages }}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            <strong>Beschreibung:</strong>
+          </td>
+          <td class="col-md-10">
+            {{ book.description }}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-4 col-sm-12">
       <img [src]="book.imageUrl" class="img-thumbnail">
     </div>
   </div>

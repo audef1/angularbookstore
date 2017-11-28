@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book, BookBinding} from '../book/book.module';
 
 @Component({
@@ -11,6 +11,9 @@ export class BookDetailsComponent implements OnInit {
   @Input()
   public book: Book;
   public bookBinding = BookBinding;
+
+  @Output()
+  public back = new EventEmitter();
 
   constructor() { }
 
