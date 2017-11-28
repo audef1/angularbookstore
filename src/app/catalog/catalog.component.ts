@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BOOK_DATA } from '../book-data';
+import {BookBinding} from '../book/book.module';
 
 @Component({
   selector: 'app-catalog',
@@ -8,20 +9,20 @@ import { BOOK_DATA } from '../book-data';
 })
 export class CatalogComponent implements OnInit {
 
-  books = BOOK_DATA;
-  selectedBook = null;
-  keywords = null;
+  public books = BOOK_DATA;
+  public selectedBook = null;
+  public keywords = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  selectBook(book) {
+  public selectBook(book) {
     this.selectedBook = book;
   }
 
-  searchBook(keywords) {
+  public searchBook(keywords) {
     this.keywords = keywords;
     const searchwords = this.keywords.split(' ');
     this.books = BOOK_DATA.filter(function(book){

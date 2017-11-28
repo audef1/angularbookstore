@@ -1,0 +1,18 @@
+<div *ngIf="book">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <strong>Author:</strong> {{ book.authors }}<br/>
+      <strong>ISBN:</strong> {{ book.isbn }}<br/>
+      <strong>Titel:</strong> {{ book.title }}<br/>
+      <strong>Preis:</strong> {{ book.price }}<br/>
+      <strong>Bindung:</strong> {{ bookBinding[book.binding] }}<br/>
+      <strong>Verlag:</strong> {{ book.publisher }}<br/>
+      <strong>Publikationsjahr:</strong> {{ book.publicationYear }}<br/>
+      <strong>Seiten:</strong> {{ book.numberOfPages }}<br/>
+      <strong>Beschreibung:</strong><br/>{{ book.description }}
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <img [src]="book.imageUrl" class="img-thumbnail">
+    </div>
+  </div>
+</div>
