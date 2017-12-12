@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BOOK_DATA } from '../book-data';
-import {BookBinding} from '../book/book.module';
+import { CatalogService } from '../catalog.service';
 
 @Component({
   selector: 'app-catalog',
@@ -9,11 +8,11 @@ import {BookBinding} from '../book/book.module';
 })
 export class CatalogComponent implements OnInit {
 
-  public books = BOOK_DATA;
+  public books;
   public selectedBook = null;
   public keywords = null;
 
-  constructor() { }
+  constructor(private catalogService: CatalogService) {}
 
   ngOnInit() {
   }
@@ -22,19 +21,12 @@ export class CatalogComponent implements OnInit {
     this.selectedBook = book;
   }
 
-  public searchBook(keywords) {
-    this.keywords = keywords;
-    const searchwords = this.keywords.split(' ');
-    this.books = BOOK_DATA.filter(function(book){
-        for (let w of searchwords) {
-            if (book.description.toLowerCase().includes(w.toLowerCase()) ||
-                book.title.toLowerCase().includes(w.toLowerCase()) ||
-                book.authors.toLowerCase().includes(w.toLowerCase()) ||
-                book.publisher.toLowerCase().includes(w.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
-    });
+  public searchBook(keywords: string) {
+    this.books = this.catalogService.searchBooks(keywords);
   }
+
+  public findBook(isbn: string) {
+      this.selectedBook = this.catalogService.findBook(isbn);
+  }
+
 }
