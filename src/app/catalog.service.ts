@@ -9,7 +9,7 @@ export class CatalogService {
 
   private static readonly DELAY = 2000;
 
-  public findBook(isbn: string): Book {
+  public findBook(isbn: string): Promise<Book> {
     return new Promise<Book>((resolve, reject) =>
     setTimeout(() => {
       let book = BOOK_DATA.find(book => book.isbn === isbn);
@@ -22,7 +22,7 @@ export class CatalogService {
     );
   }
 
-  public searchBooks(keywords: string): Book[] {
+  public searchBooks(keywords: string): Promise<Book[]> {
     return new Promise((resolve, reject) =>
     setTimeout(() => {
       if (keywords.includes('a')) {

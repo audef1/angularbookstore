@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book, BookBinding} from '../book/book.module';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-details',
@@ -15,7 +16,7 @@ export class BookDetailsComponent implements OnInit {
   @Output()
   public back = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
