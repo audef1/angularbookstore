@@ -11,6 +11,7 @@ export class CatalogComponent implements OnInit {
   public books;
   public selectedBook = null;
   public keywords = null;
+  public error: string;
 
   constructor(private catalogService: CatalogService) {}
 
@@ -21,8 +22,12 @@ export class CatalogComponent implements OnInit {
     this.selectedBook = book;
   }
 
-  public searchBook(keywords: string) {
-    this.books = this.catalogService.searchBooks(keywords);
+  public searchBook(): void {
+    this.books = null;
+    this.error = null;
+    this.catalogService.searchBooks(this.keywords)
+        .then(books => this.books = books)
+        .catch(error => this.error = error);
   }
 
   public findBook(isbn: string) {
