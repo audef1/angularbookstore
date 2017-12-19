@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book, BookBinding} from '../book/book.module';
 import {Router} from '@angular/router';
+import {OrderService} from '../order.service';
 
 @Component({
   selector: 'app-book-details',
@@ -16,9 +17,10 @@ export class BookDetailsComponent implements OnInit {
   @Output()
   public back = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private orderService: OrderService) { }
 
-  ngOnInit() {
+  public orderBook(): void {
+    this.orderService.book = this.book;
+    this.router.navigateByUrl('/customer-details');
   }
-
 }
