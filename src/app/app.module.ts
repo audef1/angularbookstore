@@ -11,6 +11,7 @@ import { CatalogService } from './catalog.service';
 import { HomeComponent } from './home/home.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import {OrderService} from './order.service';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
     CatalogComponent,
     BookDetailsComponent,
     HomeComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
