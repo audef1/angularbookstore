@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BOOK_DATA } from './book-data';
 import {Book, BookBinding} from './book/book.module';
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 @Injectable()
 export class CatalogService {
 
-  constructor() { }
-
   private static readonly DELAY = 2000;
+
+  constructor(private httpClient: HttpClient) {}
 
   public findBook(isbn: string): Promise<Book> {
     return new Promise<Book>((resolve, reject) =>
@@ -22,16 +23,12 @@ export class CatalogService {
     );
   }
 
-  public searchBooks(keywords: string): Promise<Book[]> {
-    return new Promise((resolve, reject) =>
-    setTimeout(() => {
-      if (keywords.includes('a')) {
-        reject('Books with a dont exist.');
-      } else {
-        resolve(BOOK_DATA.filter(book => this.isMatching(book, keywords)));
-      }
-    }, CatalogService.DELAY)
-    );
+  public searchBooks(keywords: string): Promicse<Book> {
+    const url = 'http://distsys.ch:1450/books?keywords=' + keywords;
+    return this.httpClient.get<Book[]>(url).toPromise().catch((response: HttpErrorResponse) => {
+      console.log('HTTP status ' + response.status + ': ' + response.error);
+      throw response.error;
+    });
   }
 
   private isMatching(book: Book, keywords: string): boolean {

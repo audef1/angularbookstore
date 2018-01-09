@@ -10,17 +10,17 @@
       <div class="panel-body">
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" [(ngModel)]="customer.email">
+          <input required type="email" class="form-control" id="email" name="email" placeholder="Enter email" [(ngModel)]="customer.email">
         </div>
 
         <div class="form-group">
           <label for="firstName">Firstname</label>
-          <input class="form-control" id="firstName" name="firstName" placeholder="Firstname" [(ngModel)]="customer.firstName">
+          <input required class="form-control" id="firstName" name="firstName" placeholder="Firstname" [(ngModel)]="customer.firstName">
         </div>
 
         <div class="form-group">
           <label for="lastName">Lastname</label>
-          <input class="form-control" id="lastName" name="firstName" placeholder="Lastname" [(ngModel)]="customer.lastName">
+          <input required class="form-control" id="lastName" name="firstName" placeholder="Lastname" [(ngModel)]="customer.lastName">
         </div>
       </div>
     </div>
@@ -41,18 +41,18 @@
         </div>
 
         <div class="form-group">
-          <label for="creditcardnumber">Lastname</label>
-          <input required class="form-control" id="creditcardnumber" name="creditcardnumber" placeholder="Number" [(ngModel)]="customer.creditCard.number">
+          <label for="creditcardnumber">Cardnumber</label>
+          <input required class="form-control" id="creditcardnumber" name="creditcardnumber" placeholder="Number" [(ngModel)]="customer.creditCard.number" pattern="([0-9]{4} ?){4}">
         </div>
 
         <div class="form-group">
           <label for="creditcardexpirationmonth">Lastname</label>
-          <input class="form-control" id="creditcardexpirationmonth" name="creditcardexpirationmonth" placeholder="Month" [(ngModel)]="customer.creditCard.expirationMonth">
+          <input required class="form-control" id="creditcardexpirationmonth" name="creditcardexpirationmonth" placeholder="Month" [(ngModel)]="customer.creditCard.expirationMonth">
         </div>
 
         <div class="form-group">
           <label for="creditcardexpirationyear">Lastname</label>
-          <input class="form-control" id="creditcardexpirationyear" name="creditcardexpirationyear" placeholder="Year" [(ngModel)]="customer.creditCard.expirationYear">
+          <input required class="form-control" id="creditcardexpirationyear" name="creditcardexpirationyear" placeholder="Year" [(ngModel)]="customer.creditCard.expirationYear">
         </div>
       </div>
     </div>
