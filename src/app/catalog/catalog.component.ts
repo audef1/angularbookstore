@@ -30,8 +30,4 @@ export class CatalogComponent implements OnInit {
         .catch(error => this.error = error);
   }
 
-  public findBook(isbn: string) {
-      this.selectedBook = this.catalogService.findBook(isbn);
-  }
-
 }

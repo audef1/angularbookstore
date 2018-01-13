@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'customer-details', component: CustomerDetailsComponent },
+  { path: 'order-summary', component: OrderSummaryComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -37,6 +38,6 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [CatalogService, OrderService],
-  bootstrap: [AppComponent, CatalogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,92 @@
-<p>
-  order-summary works!
-</p>
+<div class="container">
+
+    <h1>Order Summary</h1>
+
+    <div class="alert alert-success" role="alert" *ngIf="successmessage">
+        <strong>Order #{{successmessage}}</strong> Your order has been successfully placed.
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="errormessage">
+        <strong>Oh snap!</strong> {{errormessage}}
+    </div>
+
+    <div class="alert alert-warning" role="alert" *ngIf="!customer">
+        <strong>Attention!</strong> Please fill out your customer information.
+    </div>
+
+    <div class="alert alert-warning" role="alert" *ngIf="!book">
+        <strong>Attention!</strong> Please add a book to your order.
+    </div>
+
+    <div class="panel panel-default" *ngIf="customer">
+        <div class="panel-heading">
+            <h3 class="panel-title">Customer details</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>
+                        {{customer.firstName}} {{customer.lastName}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{customer.email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Creditcard: {{customer.creditCard.number}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-default" *ngIf="book">
+        <div class="panel-heading">
+            <h3 class="panel-title">Order details</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td class="col-md-2">
+                        <strong>Titel:</strong>
+                    </td>
+                    <td>
+                        {{ book.title }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-2">
+                        <strong>Author:</strong>
+                    </td>
+                    <td class="col-md-10">
+                        {{ book.authors }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-2">
+                        <strong>ISBN:</strong>
+                    </td>
+                    <td class="col-md-10">
+                        {{ book.isbn }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-2">
+                        <strong>Preis:</strong>
+                    </td>
+                    <td class="col-md-10">
+                        {{ book.price }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <button (click)="submitOrder()" class="btn btn-primary pull-right" *ngIf="customer && book && !successmessage">Submit Order</button>
+
+</div>
