@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Book} from '../book/book.module';
 import {Customer} from '../customer';
 import {OrderService} from '../order.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-order-summary',
