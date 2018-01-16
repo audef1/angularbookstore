@@ -25,10 +25,9 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   public submitOrder() {
-    this.orderService.orderBook().then((response: HttpErrorResponse) => {
-      console.log('Order successful: ' + response);
-      this.successmessage = response;
-
+    this.orderService.orderBook().then(orderNr => {
+      console.log('Order successful: ' + orderNr);
+      this.successmessage = orderNr;
     })
         .catch((response: HttpErrorResponse) => {
           console.log('HTTP status ' + response.status + ': ' + response.error);

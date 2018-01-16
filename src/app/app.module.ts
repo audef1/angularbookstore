@@ -5,13 +5,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
-import { CatalogService } from './catalog.service';
-import { HomeComponent } from './home/home.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
-import {OrderService} from './order.service';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { CatalogService } from './catalog.service';
+import { OrderService } from './order.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
